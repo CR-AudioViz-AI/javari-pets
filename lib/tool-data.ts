@@ -2,7 +2,7 @@
 // Tool definitions extracted from page.tsx to keep JSX parser clean
 // CR AudioViz AI · May 2026
 
-const ACTIONS = [
+export const ACTIONS = [
   { id: 'health_check',         label: '🩺 Health Check',          desc: 'AI symptom assessment and vet guidance',    prompt: (v) => `My pet: ${v.petName || 'my pet'}, a ${v.age || ''} year old ${v.breed || v.species || 'dog'}. Symptoms or concerns: ${v.concern || ''}. Provide a detailed health assessment, possible causes, immediate steps I can take at home, and clear guidance on whether/when to see a vet. Weight: ${v.weight || 'unknown'}.` },
   { id: 'nutrition_plan',       label: '🥗 Nutrition Plan',         desc: 'Custom diet and feeding schedule',          prompt: (v) => `Create a complete nutrition and feeding plan for ${v.petName || 'my pet'}, a ${v.age || ''} year old ${v.breed || v.species || 'dog'}, weighing ${v.weight || 'unknown'} lbs. Activity level: ${v.activity || 'moderate'}. Any health conditions: ${v.conditions || 'none'}. Include: daily feeding schedule, portion sizes, recommended foods, foods to avoid, treats, and supplements.` },
   { id: 'vaccination_schedule', label: '💉 Vaccination Schedule',   desc: 'Complete vaccine timeline for your pet',    prompt: (v) => `Create a complete vaccination schedule for ${v.petName || 'my pet'}, a ${v.age || ''} year old ${v.breed || v.species || 'dog'}. Location: ${v.state || 'Florida'}. Include: core vaccines, non-core vaccines, boosters, rabies requirements, flea/tick/heartworm prevention schedule, and annual vet visit checklist.` },
@@ -29,4 +29,8 @@ const EXTRA_FIELDS = {
   behavioral_advice:    [{ id: 'behavior', label: 'Behavioral Issue', placeholder: 'Aggression, excessive barking, separation anxiety...', type: 'textarea' }],
   vet_prep:             [{ id: 'visitReason', label: 'Reason for Visit', placeholder: 'Annual checkup, limping, not eating...' }],
   adoption_profile:     [{ id: 'personality', label: 'Personality', placeholder: 'Playful, gentle, loves kids, shy with strangers...' }, { id: 'specialNeeds', label: 'Special Needs', placeholder: 'None, requires medication, senior dog...' }],
+}
+
+export function getFields(actionId) {
+  return FIELDS[actionId] || []
 }
