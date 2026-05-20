@@ -3,7 +3,7 @@
 // CR AudioViz AI, LLC · EIN 39-3646201 · May 2026
 'use client'
 import { useState } from 'react'
-import { ACTIONS, FIELDS } from '@/lib/tool-data'
+import { ACTIONS, getFields } from '@/lib/tool-data'
 
 
 export default function JavariPetsPage() {
