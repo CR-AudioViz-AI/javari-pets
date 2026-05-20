@@ -14,7 +14,7 @@ const ACTIONS = [
   { id: 'adoption_profile',     label: '❤️ Adoption Profile',       desc: 'Help find the perfect match for your pet',  prompt: (v: V) => `Write a compelling adoption profile for ${v.petName || 'this pet'}, a ${v.age || ''} year old ${v.breed || v.species || 'dog'}. Personality: ${v.personality || ''}. Special needs: ${v.specialNeeds || 'none'}. Make it heartfelt, specific, and include ideal home requirements, compatibility with kids/pets, and a CTA that will motivate adoption.` },
 ]
 
-type V = Record<string, string>
+interface V { [key: string]: string }
 
 const BASE_FIELDS = [
   { id: 'petName', label: 'Pet Name', placeholder: 'Buddy' },
@@ -36,7 +36,7 @@ const EXTRA_FIELDS: Record<string, Array<{ id: string; label: string; placeholde
 
 export default function JavariPetsPage() {
   const [action, setAction] = useState(ACTIONS[0])
-  const [values, setValues] = useState<V>({})
+  const [values, setValues] = useState({})
   const [output, setOutput] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
