@@ -68,7 +68,7 @@ export default function JavariPetsPage() {
   const extraFields = EXTRA_FIELDS[action.id] || []
 
   return (
-    <div style={{ background: '#0d0f0a', minHeight: '100vh', color: '#e8efe0', fontFamily: '"Plus Jakarta Sans", system-ui, sans-serif' }}>
+    <div style={{ background: '#0d0f0a', minHeight: '100vh', color: '#e8efe0', fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif' }}>
       {/* NAV */}
       <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, background: 'rgba(13,15,10,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(74,222,128,0.12)', height: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 28px' }}>
         <a href="https://craudiovizai.com" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
