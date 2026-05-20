@@ -10,7 +10,7 @@ export default function PetsPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [copied, setCopied] = useState(false)
-  function setV(id, val) { setValues(p => ({ ...p, [id]: val })) }
+  function setV(id: string, val: string) { setValues((p: any) => ({ ...p, [id]: val })) }
   async function generate() {
     const action = actions.find(a => a.id === actionId)
     if (!action) return
