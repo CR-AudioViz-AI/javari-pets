@@ -41,8 +41,10 @@ export function getActions(): ToolAction[] {
   ]
 }
 export function getFields(actionId: string): FieldGroup {
-  const base = [{ id: 'petName', label: 'Pet Name', placeholder: 'Buddy' }, { id: 'species', label: 'Species', placeholder: 'Dog, Cat, Bird...' }, { id: 'breed', label: 'Breed', placeholder: 'Golden Retriever, Siamese...' }, { id: 'age', label: 'Age', placeholder: '3 years' }, { id: 'weight', label: 'Weight (lbs)', placeholder: '45' }]
-  const extras = {
+  const base: ToolField[] = [{ id: 'petName', label: 'Pet Name', placeholder: 'Buddy' }, { id: 'species', label: 'Species', placeholder: 'Dog, Cat, Bird...' }, { id: 'breed', label: 'Breed', placeholder: 'Golden Retriever, Siamese...' }, { id: 'age', label: 'Age', placeholder: '3 years' }, { id: 'weight', label: 'Weight (lbs)', placeholder: '45' }]
+  // 2026-09-01: typed so the actionId lookup below is not an implicit any index.
+
+  const extras: Record<string, ToolField[]> = {
     health_check: [{ id: 'concern', label: 'Symptoms / Concern', placeholder: 'Not eating, lethargic, limping...', type: 'textarea' }],
     nutrition_plan: [{ id: 'activity', label: 'Activity Level', placeholder: 'Low, Moderate, High' }, { id: 'conditions', label: 'Health Conditions', placeholder: 'Diabetes, allergies...' }],
     vaccination_schedule: [{ id: 'state', label: 'State', placeholder: 'Florida' }],
