@@ -40,7 +40,7 @@ export function getActions(): ToolAction[] {
     { id: 'adoption_profile',     label: '❤️ Adoption Profile',      desc: 'Help find the perfect home for your pet',   buildPrompt: function(v: Record<string, string>) { return 'Write a compelling adoption profile for ' + (v.petName||'this pet') + ', a ' + (v.age||'') + ' year old ' + (v.breed||v.species||'dog') + '. Personality: ' + (v.personality||'') + '. Special needs: ' + (v.specialNeeds||'none') + '. Make it heartfelt and specific with ideal home requirements and a CTA.' } },
   ]
 }
-export function getFields(actionId) {
+export function getFields(actionId: string): FieldGroup {
   const base = [{ id: 'petName', label: 'Pet Name', placeholder: 'Buddy' }, { id: 'species', label: 'Species', placeholder: 'Dog, Cat, Bird...' }, { id: 'breed', label: 'Breed', placeholder: 'Golden Retriever, Siamese...' }, { id: 'age', label: 'Age', placeholder: '3 years' }, { id: 'weight', label: 'Weight (lbs)', placeholder: '45' }]
   const extras = {
     health_check: [{ id: 'concern', label: 'Symptoms / Concern', placeholder: 'Not eating, lethargic, limping...', type: 'textarea' }],
